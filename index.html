@@ -9,22 +9,36 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; }
         
+        /* --- واجهة الدخول (الجديدة) --- */
+        #login-section { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #0d1b2a 0%, #1b3a57 100%); color: white; }
+        .login-box { background: white; color: #333; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); width: 100%; max-width: 400px; text-align: center; border-top: 5px solid #38b0b0; }
+        .login-box img { width: 80px; margin-bottom: 15px; }
+        .login-box h2 { margin-bottom: 5px; color: #0d1b2a; font-family: 'Georgia', serif; }
+        .login-box p { color: #888; font-size: 14px; margin-bottom: 25px; }
+        .login-box input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; outline: none; }
+        .login-box input:focus { border-color: #38b0b0; }
+        .login-box button { width: 100%; background-color: #38b0b0; color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+        .login-box button:hover { background-color: #298a8a; }
+        
+        /* --- إخفاء المحتوى الرئيسي في البداية --- */
+        #app-content { display: none; }
+
         /* --- شريط التصفح --- */
         .navbar { background-color: #0d1b2a; color: #ffffff; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); position: sticky; top: 0; z-index: 1000; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
         .logo-img { height: 60px; width: auto; object-fit: contain; }
         .site-title { font-family: 'Georgia', serif; font-size: 26px; font-weight: bold; margin: 0; color: #ffffff; }
         .site-subtitle { font-size: 14px; color: #38b0b0; font-weight: 500; }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
         .nav-links a { color: #e0e1dd; text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.3s ease; }
         .nav-links a:hover { color: #38b0b0; }
+        .btn-logout { background-color: #d4af37; color: #0d1b2a; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; font-size: 14px; }
+        .btn-logout:hover { background-color: #b5952f; }
 
-        /* --- واجهة الترحيب --- */
+        /* --- واجهة الترحيب والمحتوى --- */
         .hero { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a57 100%); color: white; padding: 80px 40px; text-align: center; }
         .hero h2 { font-size: 36px; font-family: 'Georgia', serif; margin-bottom: 20px; color: #d4af37; }
         .hero p { font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #e0e1dd; }
-
-        /* --- المحتوى الرئيسي --- */
         main { padding: 50px 40px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 40px; }
         .section-header h2 { font-size: 30px; color: #0d1b2a; font-family: 'Georgia', serif; display: inline-block; border-bottom: 3px solid #38b0b0; padding-bottom: 10px; }
@@ -42,102 +56,104 @@
         /* --- قسم المنتدى --- */
         .forum-container { background: white; border-radius: 10px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid #d4af37; }
         #messages-list { max-height: 400px; overflow-y: auto; margin-bottom: 20px; padding-right: 10px; }
-        .forum-message { border-bottom: 1px solid #eee; padding: 15px 0; animation: fadeIn 0.5s; }
+        .forum-message { border-bottom: 1px solid #eee; padding: 15px 0; }
         .forum-message:last-child { border-bottom: none; }
         .forum-message strong { color: #0d1b2a; font-size: 16px; }
         .forum-message span { color: #888; font-size: 12px; margin-left: 10px; }
         .forum-message p { margin-top: 8px; color: #444; }
-        
         .forum-input-area { display: flex; gap: 10px; border-top: 1px solid #eee; padding-top: 20px; }
         .forum-input-area input { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; outline: none; }
-        .forum-input-area input:focus { border-color: #38b0b0; }
         #userName { width: 200px; }
         #userMessage { flex-grow: 1; }
-
         footer { background-color: #0d1b2a; color: #888; text-align: center; padding: 20px; font-size: 14px; margin-top: 40px; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo-container">
-            <img src="logo.png" alt="Logo Trait d'Union FLE" class="logo-img">
-            <div>
-                <h1 class="site-title">Trait d'Union FLE</h1>
-                <div class="site-subtitle">Lycée Chérif El-Idrisi</div>
-            </div>
+    <!-- شاشة تسجيل الدخول -->
+    <div id="login-section">
+        <div class="login-box">
+            <h2>Accès Réservé</h2>
+            <p>Espace des professeurs de français</p>
+            <input type="email" id="emailInput" placeholder="Adresse e-mail">
+            <input type="password" id="passwordInput" placeholder="Mot de passe">
+            <button id="btnLogin">Se connecter</button>
         </div>
-        <nav class="nav-links">
-            <a href="#accueil">Accueil</a>
-            <a href="#ressources">Ressources</a>
-            <a href="#forum">Forum</a>
-        </nav>
-    </header>
+    </div>
 
-    <section id="accueil" class="hero">
-        <h2>Bienvenue sur l'espace d'échange pédagogique</h2>
-        <p>Une plateforme dédiée aux professeurs de français du Lycée Chérif El-Idrisi. Partagez vos fiches, vos textes, et échangez vos meilleures pratiques pour enrichir notre enseignement.</p>
-    </section>
-
-    <main>
-        <section id="ressources">
-            <div class="section-header">
-                <h2>Banque de Ressources Pédagogiques</h2>
-            </div>
-            <div class="ressources-grid">
-                <div class="card">
-                    <div class="card-icon">📝</div>
-                    <h3>Fiche : Compte rendu</h3>
-                    <p>Déroulement de la séance des techniques du compte rendu, spécifiquement programmée après la production écrite.</p>
-                    <button class="btn-action">Télécharger (Word)</button>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h3>Évaluation : L'explication</h3>
-                    <p>Sujet type d'examen ciblant la production écrite, où la tâche exige de l'élève d'expliquer (et non d'argumenter).</p>
-                    <button class="btn-action">Télécharger (PDF)</button>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📜</div>
-                    <h3>Texte : Mahfoud Kaddache</h3>
-                    <p>Support de cours authentique extrait de l'œuvre de Mahfoud Kaddache pour l'étude du texte d'histoire.</p>
-                    <button class="btn-action">Télécharger (PDF)</button>
+    <!-- محتوى الموقع (يظل مخفياً حتى الدخول) -->
+    <div id="app-content">
+        <header class="navbar">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div>
+                    <h1 class="site-title">Trait d'Union FLE</h1>
+                    <div class="site-subtitle">Lycée Chérif El-Idrisi</div>
                 </div>
             </div>
+            <nav class="nav-links">
+                <a href="#ressources">Ressources</a>
+                <a href="#forum">Forum</a>
+                <button id="btnLogout" class="btn-logout">Déconnexion</button>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h2>Bienvenue sur l'espace d'échange pédagogique</h2>
+            <p>Une plateforme dédiée aux professeurs de français. Partagez vos fiches, vos textes, et échangez vos meilleures pratiques.</p>
         </section>
 
-        <!-- قسم المنتدى التفاعلي -->
-        <section id="forum">
-            <div class="section-header">
-                <h2>Discussions en direct</h2>
-            </div>
-            
-            <div class="forum-container">
-                <!-- هنا ستظهر الرسائل -->
-                <div id="messages-list">
-                    <p style="color: #888; text-align: center;">Chargement des messages...</p>
+        <main>
+            <section id="ressources">
+                <div class="section-header">
+                    <h2>Banque de Ressources Pédagogiques</h2>
                 </div>
-                
-                <!-- منطقة كتابة الرسالة -->
-                <div class="forum-input-area">
-                    <input type="text" id="userName" placeholder="Votre nom (ex: Noureddine)">
-                    <input type="text" id="userMessage" placeholder="Écrivez votre message à vos collègues...">
-                    <button id="btnEnvoyer" class="btn-action">Envoyer</button>
+                <div class="ressources-grid">
+                    <div class="card">
+                        <div class="card-icon">📝</div>
+                        <h3>Fiche : Compte rendu</h3>
+                        <p>Déroulement de la séance des techniques du compte rendu, après la production écrite.</p>
+                        <button class="btn-action">Télécharger (Word)</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Évaluation : L'explication</h3>
+                        <p>Sujet type d'examen ciblant la production écrite (expliquer et non argumenter).</p>
+                        <button class="btn-action">Télécharger (PDF)</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📜</div>
+                        <h3>Texte : Mahfoud Kaddache</h3>
+                        <p>Support authentique de Mahfoud Kaddache pour l'étude du texte d'histoire.</p>
+                        <button class="btn-action">Télécharger (PDF)</button>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <footer>
-        &copy; 2026 Trait d'Union FLE - Lycée Chérif El-Idrisi, Hammam Dalâa. Conçu pour les enseignants.
-    </footer>
+            <section id="forum">
+                <div class="section-header">
+                    <h2>Discussions en direct</h2>
+                </div>
+                <div class="forum-container">
+                    <div id="messages-list"></div>
+                    <div class="forum-input-area">
+                        <input type="text" id="userName" placeholder="Votre nom (ex: Noureddine)">
+                        <input type="text" id="userMessage" placeholder="Écrivez votre message...">
+                        <button id="btnEnvoyer" class="btn-action">Envoyer</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            &copy; 2026 Trait d'Union FLE - Lycée Chérif El-Idrisi.
+        </footer>
+    </div>
 
-    <!-- مكتبات Firebase -->
+    <!-- مكتبات Firebase (بما فيها مكتبة تسجيل الدخول Auth) -->
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
 
-    <!-- كود تشغيل المنتدى -->
     <script>
         // إعدادات مشروعك
         const firebaseConfig = {
@@ -149,34 +165,65 @@
             appId: "1:944767964127:web:30b0ab799a36575754ea6a"
         };
 
-        // تهيئة Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
+        const auth = firebase.auth();
 
+        // عناصر واجهة المستخدم
+        const loginSection = document.getElementById('login-section');
+        const appContent = document.getElementById('app-content');
+        const btnLogin = document.getElementById('btnLogin');
+        const btnLogout = document.getElementById('btnLogout');
+        const emailInput = document.getElementById('emailInput');
+        const passwordInput = document.getElementById('passwordInput');
+
+        // مراقبة حالة تسجيل الدخول
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // المستخدم مسجل الدخول: إخفاء شاشة الدخول وإظهار الموقع
+                loginSection.style.display = 'none';
+                appContent.style.display = 'block';
+            } else {
+                // لا يوجد مستخدم: إظهار شاشة الدخول وإخفاء الموقع
+                loginSection.style.display = 'flex';
+                appContent.style.display = 'none';
+            }
+        });
+
+        // زر تسجيل الدخول
+        btnLogin.addEventListener('click', () => {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            if(email && password) {
+                auth.signInWithEmailAndPassword(email, password)
+                    .catch(error => {
+                        alert("Erreur : E-mail ou mot de passe incorrect.");
+                    });
+            } else {
+                alert("Veuillez remplir tous les champs.");
+            }
+        });
+
+        // زر تسجيل الخروج
+        btnLogout.addEventListener('click', () => {
+            auth.signOut();
+        });
+
+        // --- كود المنتدى (يعمل فقط بعد الدخول) ---
         const messagesList = document.getElementById('messages-list');
         const btnEnvoyer = document.getElementById('btnEnvoyer');
         const userNameInput = document.getElementById('userName');
         const userMessageInput = document.getElementById('userMessage');
 
-        // جلب وعرض الرسائل مباشرة
         db.collection("forum").orderBy("timestamp", "asc").onSnapshot((snapshot) => {
             messagesList.innerHTML = '';
-            
-            if (snapshot.empty) {
-                messagesList.innerHTML = '<p style="color: #888; text-align: center;">Soyez le premier à envoyer un message !</p>';
-                return;
-            }
-
             snapshot.forEach((doc) => {
                 const data = doc.data();
-                // تنسيق الوقت
                 let timeString = '';
                 if (data.timestamp) {
                     const date = data.timestamp.toDate();
                     timeString = date.toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'});
                 }
-
-                // إضافة الرسالة إلى الشاشة
                 messagesList.innerHTML += `
                     <div class="forum-message">
                         <strong>${data.nom}</strong> <span>${timeString}</span>
@@ -184,33 +231,25 @@
                     </div>
                 `;
             });
-            // التمرير التلقائي لأسفل لرؤية أحدث رسالة
             messagesList.scrollTop = messagesList.scrollHeight;
         });
 
-        // إرسال رسالة جديدة
         btnEnvoyer.addEventListener('click', () => {
             const nom = userNameInput.value.trim();
             const message = userMessageInput.value.trim();
-            
             if (nom !== "" && message !== "") {
                 db.collection("forum").add({
                     nom: nom,
                     message: message,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 }).then(() => {
-                    userMessageInput.value = ''; // مسح خانة الرسالة بعد الإرسال
+                    userMessageInput.value = ''; 
                 });
-            } else {
-                alert("Veuillez entrer votre nom et votre message.");
             }
         });
 
-        // السماح بالإرسال عند الضغط على زر Entrée في لوحة المفاتيح
         userMessageInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                btnEnvoyer.click();
-            }
+            if (e.key === 'Enter') btnEnvoyer.click();
         });
     </script>
 </body>
