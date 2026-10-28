@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trait d'Union FLE - Lycée Chérif El-Idrisi</title>
+    <style>
+        /* --- الإعدادات العامة --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; }
+        
+        /* --- شريط التصفح --- */
+        .navbar { background-color: #0d1b2a; color: #ffffff; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-img { height: 60px; width: auto; object-fit: contain; }
+        .site-title { font-family: 'Georgia', serif; font-size: 26px; font-weight: bold; margin: 0; color: #ffffff; }
+        .site-subtitle { font-size: 14px; color: #38b0b0; font-weight: 500; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { color: #e0e1dd; text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #38b0b0; }
+
+        /* --- واجهة الترحيب --- */
+        .hero { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a57 100%); color: white; padding: 80px 40px; text-align: center; }
+        .hero h2 { font-size: 36px; font-family: 'Georgia', serif; margin-bottom: 20px; color: #d4af37; }
+        .hero p { font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #e0e1dd; }
+
+        /* --- المحتوى الرئيسي --- */
+        main { padding: 50px 40px; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { font-size: 30px; color: #0d1b2a; font-family: 'Georgia', serif; display: inline-block; border-bottom: 3px solid #38b0b0; padding-bottom: 10px; }
+
+        /* --- شبكة الموارد --- */
+        .ressources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; border-top: 4px solid #38b0b0; }
+        .card:hover { transform: translateY(-10px); }
+        .card-icon { font-size: 40px; margin-bottom: 15px; }
+        .card h3 { color: #0d1b2a; font-size: 20px; margin-bottom: 15px; }
+        .card p { color: #555; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+        .btn-action { background-color: #38b0b0; color: white; text-align: center; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s ease; }
+        .btn-action:hover { background-color: #298a8a; }
+
+        /* --- قسم المنتدى --- */
+        .forum-container { background: white; border-radius: 10px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid #d4af37; }
+        #messages-list { max-height: 400px; overflow-y: auto; margin-bottom: 20px; padding-right: 10px; }
+        .forum-message { border-bottom: 1px solid #eee; padding: 15px 0; animation: fadeIn 0.5s; }
+        .forum-message:last-child { border-bottom: none; }
+        .forum-message strong { color: #0d1b2a; font-size: 16px; }
+        .forum-message span { color: #888; font-size: 12px; margin-left: 10px; }
+        .forum-message p { margin-top: 8px; color: #444; }
+        
+        .forum-input-area { display: flex; gap: 10px; border-top: 1px solid #eee; padding-top: 20px; }
+        .forum-input-area input { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; outline: none; }
+        .forum-input-area input:focus { border-color: #38b0b0; }
+        #userName { width: 200px; }
+        #userMessage { flex-grow: 1; }
+
+        footer { background-color: #0d1b2a; color: #888; text-align: center; padding: 20px; font-size: 14px; margin-top: 40px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo Trait d'Union FLE" class="logo-img">
+            <div>
+                <h1 class="site-title">Trait d'Union FLE</h1>
+                <div class="site-subtitle">Lycée Chérif El-Idrisi</div>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#accueil">Accueil</a>
+            <a href="#ressources">Ressources</a>
+            <a href="#forum">Forum</a>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+        <h2>Bienvenue sur l'espace d'échange pédagogique</h2>
+        <p>Une plateforme dédiée aux professeurs de français du Lycée Chérif El-Idrisi. Partagez vos fiches, vos textes, et échangez vos meilleures pratiques pour enrichir notre enseignement.</p>
+    </section>
+
+    <main>
+        <section id="ressources">
+            <div class="section-header">
+                <h2>Banque de Ressources Pédagogiques</h2>
+            </div>
+            <div class="ressources-grid">
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <h3>Fiche : Compte rendu</h3>
+                    <p>Déroulement de la séance des techniques du compte rendu, spécifiquement programmée après la production écrite.</p>
+                    <button class="btn-action">Télécharger (Word)</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Évaluation : L'explication</h3>
+                    <p>Sujet type d'examen ciblant la production écrite, où la tâche exige de l'élève d'expliquer (et non d'argumenter).</p>
+                    <button class="btn-action">Télécharger (PDF)</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📜</div>
+                    <h3>Texte : Mahfoud Kaddache</h3>
+                    <p>Support de cours authentique extrait de l'œuvre de Mahfoud Kaddache pour l'étude du texte d'histoire.</p>
+                    <button class="btn-action">Télécharger (PDF)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المنتدى التفاعلي -->
+        <section id="forum">
+            <div class="section-header">
+                <h2>Discussions en direct</h2>
+            </div>
+            
+            <div class="forum-container">
+                <!-- هنا ستظهر الرسائل -->
+                <div id="messages-list">
+                    <p style="color: #888; text-align: center;">Chargement des messages...</p>
+                </div>
+                
+                <!-- منطقة كتابة الرسالة -->
+                <div class="forum-input-area">
+                    <input type="text" id="userName" placeholder="Votre nom (ex: Noureddine)">
+                    <input type="text" id="userMessage" placeholder="Écrivez votre message à vos collègues...">
+                    <button id="btnEnvoyer" class="btn-action">Envoyer</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Trait d'Union FLE - Lycée Chérif El-Idrisi, Hammam Dalâa. Conçu pour les enseignants.
+    </footer>
+
+    <!-- مكتبات Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+    <!-- كود تشغيل المنتدى -->
+    <script>
+        // إعدادات مشروعك
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb7g6VsMmCA14GdmLjC1xgBh9WpYHqi3o",
+            authDomain: "trait-d-union-fle-5f9c3.firebaseapp.com",
+            projectId: "trait-d-union-fle-5f9c3",
+            storageBucket: "trait-d-union-fle-5f9c3.firebasestorage.app",
+            messagingSenderId: "944767964127",
+            appId: "1:944767964127:web:30b0ab799a36575754ea6a"
+        };
+
+        // تهيئة Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        const messagesList = document.getElementById('messages-list');
+        const btnEnvoyer = document.getElementById('btnEnvoyer');
+        const userNameInput = document.getElementById('userName');
+        const userMessageInput = document.getElementById('userMessage');
+
+        // جلب وعرض الرسائل مباشرة
+        db.collection("forum").orderBy("timestamp", "asc").onSnapshot((snapshot) => {
+            messagesList.innerHTML = '';
+            
+            if (snapshot.empty) {
+                messagesList.innerHTML = '<p style="color: #888; text-align: center;">Soyez le premier à envoyer un message !</p>';
+                return;
+            }
+
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                // تنسيق الوقت
+                let timeString = '';
+                if (data.timestamp) {
+                    const date = data.timestamp.toDate();
+                    timeString = date.toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'});
+                }
+
+                // إضافة الرسالة إلى الشاشة
+                messagesList.innerHTML += `
+                    <div class="forum-message">
+                        <strong>${data.nom}</strong> <span>${timeString}</span>
+                        <p>${data.message}</p>
+                    </div>
+                `;
+            });
+            // التمرير التلقائي لأسفل لرؤية أحدث رسالة
+            messagesList.scrollTop = messagesList.scrollHeight;
+        });
+
+        // إرسال رسالة جديدة
+        btnEnvoyer.addEventListener('click', () => {
+            const nom = userNameInput.value.trim();
+            const message = userMessageInput.value.trim();
+            
+            if (nom !== "" && message !== "") {
+                db.collection("forum").add({
+                    nom: nom,
+                    message: message,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                }).then(() => {
+                    userMessageInput.value = ''; // مسح خانة الرسالة بعد الإرسال
+                });
+            } else {
+                alert("Veuillez entrer votre nom et votre message.");
+            }
+        });
+
+        // السماح بالإرسال عند الضغط على زر Entrée في لوحة المفاتيح
+        userMessageInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                btnEnvoyer.click();
+            }
+        });
+    </script>
+</body>
+</html>
