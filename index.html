@@ -9,68 +9,62 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; }
         
-        /* --- واجهة الدخول (الجديدة) --- */
+        /* --- واجهة الدخول --- */
         #login-section { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #0d1b2a 0%, #1b3a57 100%); color: white; }
         .login-box { background: white; color: #333; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); width: 100%; max-width: 400px; text-align: center; border-top: 5px solid #38b0b0; }
         .login-box img { width: 80px; margin-bottom: 15px; }
         .login-box h2 { margin-bottom: 5px; color: #0d1b2a; font-family: 'Georgia', serif; }
         .login-box p { color: #888; font-size: 14px; margin-bottom: 25px; }
         .login-box input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; outline: none; }
-        .login-box input:focus { border-color: #38b0b0; }
-        .login-box button { width: 100%; background-color: #38b0b0; color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+        .login-box button { width: 100%; background-color: #38b0b0; color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold; font-size: 16px; cursor: pointer; }
         .login-box button:hover { background-color: #298a8a; }
         
-        /* --- إخفاء المحتوى الرئيسي في البداية --- */
         #app-content { display: none; }
 
         /* --- شريط التصفح --- */
-        .navbar { background-color: #0d1b2a; color: #ffffff; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); position: sticky; top: 0; z-index: 1000; }
+        .navbar { background-color: #0d1b2a; color: #ffffff; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; position: sticky; top: 0; z-index: 1000; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 60px; width: auto; object-fit: contain; }
-        .site-title { font-family: 'Georgia', serif; font-size: 26px; font-weight: bold; margin: 0; color: #ffffff; }
+        .site-title { font-family: 'Georgia', serif; font-size: 26px; font-weight: bold; margin: 0; }
         .site-subtitle { font-size: 14px; color: #38b0b0; font-weight: 500; }
         .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a { color: #e0e1dd; text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.3s ease; }
-        .nav-links a:hover { color: #38b0b0; }
-        .btn-logout { background-color: #d4af37; color: #0d1b2a; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; font-size: 14px; }
-        .btn-logout:hover { background-color: #b5952f; }
+        .nav-links a { color: #e0e1dd; text-decoration: none; font-weight: 500; }
+        .btn-logout { background-color: #d4af37; color: #0d1b2a; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
 
-        /* --- واجهة الترحيب والمحتوى --- */
-        .hero { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a57 100%); color: white; padding: 80px 40px; text-align: center; }
+        /* --- الواجهة --- */
+        .hero { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a57 100%); color: white; padding: 60px 40px; text-align: center; }
         .hero h2 { font-size: 36px; font-family: 'Georgia', serif; margin-bottom: 20px; color: #d4af37; }
-        .hero p { font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #e0e1dd; }
         main { padding: 50px 40px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h2 { font-size: 30px; color: #0d1b2a; font-family: 'Georgia', serif; display: inline-block; border-bottom: 3px solid #38b0b0; padding-bottom: 10px; }
+        .section-header h2 { font-size: 30px; color: #0d1b2a; font-family: 'Georgia', serif; border-bottom: 3px solid #38b0b0; padding-bottom: 10px; display: inline-block; }
+
+        /* --- رفع الملفات --- */
+        .upload-section { background: white; border-radius: 10px; padding: 30px; margin-bottom: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid #38b0b0; }
+        .upload-section input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; outline: none; }
+        .upload-section input[type="file"] { background-color: #f9f9f9; padding: 10px; }
 
         /* --- شبكة الموارد --- */
-        .ressources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
-        .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; border-top: 4px solid #38b0b0; }
-        .card:hover { transform: translateY(-10px); }
-        .card-icon { font-size: 40px; margin-bottom: 15px; }
-        .card h3 { color: #0d1b2a; font-size: 20px; margin-bottom: 15px; }
-        .card p { color: #555; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
-        .btn-action { background-color: #38b0b0; color: white; text-align: center; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s ease; }
-        .btn-action:hover { background-color: #298a8a; }
+        .ressources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; border-top: 4px solid #38b0b0; }
+        .card h3 { color: #0d1b2a; font-size: 20px; margin-bottom: 10px; }
+        .card p { color: #555; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+        .btn-action { background-color: #38b0b0; color: white; text-align: center; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; display: block; width: 100%; }
 
         /* --- قسم المنتدى --- */
         .forum-container { background: white; border-radius: 10px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid #d4af37; }
-        #messages-list { max-height: 400px; overflow-y: auto; margin-bottom: 20px; padding-right: 10px; }
+        #messages-list { max-height: 400px; overflow-y: auto; margin-bottom: 20px; }
         .forum-message { border-bottom: 1px solid #eee; padding: 15px 0; }
-        .forum-message:last-child { border-bottom: none; }
-        .forum-message strong { color: #0d1b2a; font-size: 16px; }
+        .forum-message strong { color: #0d1b2a; }
         .forum-message span { color: #888; font-size: 12px; margin-left: 10px; }
         .forum-message p { margin-top: 8px; color: #444; }
         .forum-input-area { display: flex; gap: 10px; border-top: 1px solid #eee; padding-top: 20px; }
-        .forum-input-area input { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; outline: none; }
+        .forum-input-area input { padding: 12px; border: 1px solid #ccc; border-radius: 5px; outline: none; }
         #userName { width: 200px; }
         #userMessage { flex-grow: 1; }
-        footer { background-color: #0d1b2a; color: #888; text-align: center; padding: 20px; font-size: 14px; margin-top: 40px; }
+        footer { background-color: #0d1b2a; color: #888; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-    <!-- شاشة تسجيل الدخول -->
     <div id="login-section">
         <div class="login-box">
             <h2>Accès Réservé</h2>
@@ -81,11 +75,9 @@
         </div>
     </div>
 
-    <!-- محتوى الموقع (يظل مخفياً حتى الدخول) -->
     <div id="app-content">
         <header class="navbar">
             <div class="logo-container">
-                <img src="logo.png" alt="Logo" class="logo-img">
                 <div>
                     <h1 class="site-title">Trait d'Union FLE</h1>
                     <div class="site-subtitle">Lycée Chérif El-Idrisi</div>
@@ -99,33 +91,48 @@
         </header>
 
         <section class="hero">
-            <h2>Bienvenue sur l'espace d'échange pédagogique</h2>
-            <p>Une plateforme dédiée aux professeurs de français. Partagez vos fiches, vos textes, et échangez vos meilleures pratiques.</p>
+            <h2>Espace d'échange pédagogique</h2>
+            <p>Partagez vos fiches, vos textes, et échangez vos meilleures pratiques.</p>
         </section>
 
         <main>
             <section id="ressources">
                 <div class="section-header">
-                    <h2>Banque de Ressources Pédagogiques</h2>
+                    <h2>Banque de Ressources</h2>
                 </div>
+
+                <!-- مساحة رفع الملفات الجديدة -->
+                <div class="upload-section">
+                    <h3 style="color: #0d1b2a; margin-bottom: 15px;">Partager un nouveau document</h3>
+                    <input type="text" id="resTitre" placeholder="Titre du document (ex: Fiche de lecture 2AS)">
+                    <input type="text" id="resDesc" placeholder="Petite description du contenu...">
+                    <input type="file" id="resFichier" accept=".pdf,.doc,.docx,.ppt,.pptx">
+                    <button id="btnUploadRessource" class="btn-action" style="width: auto; padding: 12px 25px;">Mettre en ligne</button>
+                    <p id="uploadStatus" style="color: #38b0b0; display: none; margin-top: 10px;">Envoi en cours, veuillez patienter...</p>
+                </div>
+
+                <!-- الملفات الجديدة ستظهر هنا تلقائياً -->
+                <div class="ressources-grid" id="ressources-dynamiques">
+                    <!-- سيتم حقن الملفات من قاعدة البيانات هنا -->
+                </div>
+
+                <!-- الأرشيف (الملفات القديمة) -->
+                <h3 style="color: #0d1b2a; margin-bottom: 20px; padding-top: 20px; border-top: 1px solid #ccc;">Documents d'archives</h3>
                 <div class="ressources-grid">
                     <div class="card">
-                        <div class="card-icon">📝</div>
                         <h3>Fiche : Compte rendu</h3>
                         <p>Déroulement de la séance des techniques du compte rendu, après la production écrite.</p>
-                        <button class="btn-action">Télécharger (Word)</button>
+                        <button class="btn-action">Document interne</button>
                     </div>
                     <div class="card">
-                        <div class="card-icon">🎯</div>
                         <h3>Évaluation : L'explication</h3>
                         <p>Sujet type d'examen ciblant la production écrite (expliquer et non argumenter).</p>
-                        <button class="btn-action">Télécharger (PDF)</button>
+                        <button class="btn-action">Document interne</button>
                     </div>
                     <div class="card">
-                        <div class="card-icon">📜</div>
                         <h3>Texte : Mahfoud Kaddache</h3>
                         <p>Support authentique de Mahfoud Kaddache pour l'étude du texte d'histoire.</p>
-                        <button class="btn-action">Télécharger (PDF)</button>
+                        <button class="btn-action">Document interne</button>
                     </div>
                 </div>
             </section>
@@ -139,7 +146,7 @@
                     <div class="forum-input-area">
                         <input type="text" id="userName" placeholder="Votre nom (ex: Noureddine)">
                         <input type="text" id="userMessage" placeholder="Écrivez votre message...">
-                        <button id="btnEnvoyer" class="btn-action">Envoyer</button>
+                        <button id="btnEnvoyer" class="btn-action" style="width: auto;">Envoyer</button>
                     </div>
                 </div>
             </section>
@@ -149,13 +156,13 @@
         </footer>
     </div>
 
-    <!-- مكتبات Firebase (بما فيها مكتبة تسجيل الدخول Auth) -->
+    <!-- مكتبات Firebase الشاملة -->
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
 
     <script>
-        // إعدادات مشروعك
         const firebaseConfig = {
             apiKey: "AIzaSyAb7g6VsMmCA14GdmLjC1xgBh9WpYHqi3o",
             authDomain: "trait-d-union-fle-5f9c3.firebaseapp.com",
@@ -168,48 +175,85 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         const auth = firebase.auth();
+        const storage = firebase.storage();
 
-        // عناصر واجهة المستخدم
+        // 1. نظام الدخول
         const loginSection = document.getElementById('login-section');
         const appContent = document.getElementById('app-content');
-        const btnLogin = document.getElementById('btnLogin');
-        const btnLogout = document.getElementById('btnLogout');
-        const emailInput = document.getElementById('emailInput');
-        const passwordInput = document.getElementById('passwordInput');
-
-        // مراقبة حالة تسجيل الدخول
+        
         auth.onAuthStateChanged(user => {
             if (user) {
-                // المستخدم مسجل الدخول: إخفاء شاشة الدخول وإظهار الموقع
                 loginSection.style.display = 'none';
                 appContent.style.display = 'block';
             } else {
-                // لا يوجد مستخدم: إظهار شاشة الدخول وإخفاء الموقع
                 loginSection.style.display = 'flex';
                 appContent.style.display = 'none';
             }
         });
 
-        // زر تسجيل الدخول
-        btnLogin.addEventListener('click', () => {
-            const email = emailInput.value.trim();
-            const password = passwordInput.value.trim();
-            if(email && password) {
-                auth.signInWithEmailAndPassword(email, password)
-                    .catch(error => {
-                        alert("Erreur : E-mail ou mot de passe incorrect.");
-                    });
-            } else {
-                alert("Veuillez remplir tous les champs.");
+        document.getElementById('btnLogin').addEventListener('click', () => {
+            const email = document.getElementById('emailInput').value.trim();
+            const password = document.getElementById('passwordInput').value.trim();
+            if(email && password) auth.signInWithEmailAndPassword(email, password).catch(() => alert("E-mail ou mot de passe incorrect."));
+        });
+        document.getElementById('btnLogout').addEventListener('click', () => auth.signOut());
+
+        // 2. نظام رفع وجلب الملفات
+        const btnUploadRessource = document.getElementById('btnUploadRessource');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const ressourcesDynamiques = document.getElementById('ressources-dynamiques');
+
+        btnUploadRessource.addEventListener('click', () => {
+            const titre = document.getElementById('resTitre').value.trim();
+            const desc = document.getElementById('resDesc').value.trim();
+            const fichier = document.getElementById('resFichier').files[0];
+
+            if (!titre || !fichier) {
+                alert("Veuillez entrer un titre et sélectionner un fichier.");
+                return;
             }
+
+            uploadStatus.style.display = 'block';
+            const storageRef = storage.ref('ressources/' + fichier.name);
+            
+            storageRef.put(fichier).then(snapshot => {
+                return snapshot.ref.getDownloadURL();
+            }).then(downloadURL => {
+                // حفظ معلومات الملف في قاعدة البيانات
+                db.collection("ressources").add({
+                    titre: titre,
+                    description: desc,
+                    url: downloadURL,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                // تفريغ الخانات بعد النجاح
+                document.getElementById('resTitre').value = '';
+                document.getElementById('resDesc').value = '';
+                document.getElementById('resFichier').value = '';
+                uploadStatus.style.display = 'none';
+            }).catch(error => {
+                alert("Erreur lors de l'envoi : " + error.message);
+                uploadStatus.style.display = 'none';
+            });
         });
 
-        // زر تسجيل الخروج
-        btnLogout.addEventListener('click', () => {
-            auth.signOut();
+        // جلب الملفات المرفوعة وعرضها
+        db.collection("ressources").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+            ressourcesDynamiques.innerHTML = '';
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                ressourcesDynamiques.innerHTML += `
+                    <div class="card">
+                        <h3 style="color: #38b0b0;">📂 ${data.titre}</h3>
+                        <p>${data.description}</p>
+                        <a href="${data.url}" target="_blank" class="btn-action">Télécharger le fichier</a>
+                    </div>
+                `;
+            });
         });
 
-        // --- كود المنتدى (يعمل فقط بعد الدخول) ---
+        // 3. نظام المنتدى
         const messagesList = document.getElementById('messages-list');
         const btnEnvoyer = document.getElementById('btnEnvoyer');
         const userNameInput = document.getElementById('userName');
@@ -219,11 +263,7 @@
             messagesList.innerHTML = '';
             snapshot.forEach((doc) => {
                 const data = doc.data();
-                let timeString = '';
-                if (data.timestamp) {
-                    const date = data.timestamp.toDate();
-                    timeString = date.toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'});
-                }
+                let timeString = data.timestamp ? data.timestamp.toDate().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'}) : '';
                 messagesList.innerHTML += `
                     <div class="forum-message">
                         <strong>${data.nom}</strong> <span>${timeString}</span>
@@ -238,19 +278,11 @@
             const nom = userNameInput.value.trim();
             const message = userMessageInput.value.trim();
             if (nom !== "" && message !== "") {
-                db.collection("forum").add({
-                    nom: nom,
-                    message: message,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                }).then(() => {
-                    userMessageInput.value = ''; 
-                });
+                db.collection("forum").add({ nom: nom, message: message, timestamp: firebase.firestore.FieldValue.serverTimestamp() })
+                .then(() => userMessageInput.value = '');
             }
         });
-
-        userMessageInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') btnEnvoyer.click();
-        });
+        userMessageInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') btnEnvoyer.click(); });
     </script>
 </body>
 </html>
